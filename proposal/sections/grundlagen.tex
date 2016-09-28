@@ -1,0 +1,94 @@
+%% LaTeX2e class for student theses
+%% sections/conclusion.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\chapter{Grundlagen}
+\label{ch:Grundlagen}
+Im folgenden Abschnitt werden grundlegende Konzepte und Begriffe erläutert, die für die geplante Bachelorarbeit benötigt werden.
+\section{Vertraulichkeit}
+In der Literatur gibt es verschiedene Definitionen für Vertraulichkeit. In der Europäischen-Datenschutzgrundverordnung (EU-DSGVO) heißt es, dass Vertraulichkeit die Eigenschaft ist, dass Unbefugte keinen Zugang zu den Daten haben und weder die Daten noch die Geräte, mit denen diese verarbeitet werden, benutzen können (vgl. Art. 26ff EU-DSGVO). 
+Eine andere Definition liefert das Bundesverfassungsgericht (BVerfG) in einem Urteil. Laut diesem versteht man unter Vertraulichkeit den Schutz vorhandener Daten gegen das Ausspähen (vgl. BVerfG 120, 274). Eine weitere Definition findet sich in dem Buch \textbf{Secure Systems Development with UML} \cite{Jurjens2005}. Dort heißt es, dass Daten nur von legitimen Parteien gelesen werden dürfen.
+Eine Festlegung auf einen Vertraulichkeitsbegriff soll hier noch nicht geschehen. Dies soll im Zuge der Spezifizierung der Vertraulichkeit (vgl. \ref{subch:SpezifiziereVertraulichkeit}) als eigenständige Arbeit geschehen.
+
+%%Definitionen: (sortieren: europäischer als oberdefinition, Bverfg und umlsec als spezifikation \\
+%%-Daten dürfen nur von legitimen Parteien gelesen werden \\
+%%-Schutz vor unbefugter Preisgabe von Informationen an dritte (IT Wissen)\\
+%%-unbefugte kein zugang zu Daten und geräten(europäischer Datenschutz) \\
+%%- Schutz vorhandener Daten gegen Ausspähen (BVerfG 2008, [11 Abs 180])
+
+
+\section{Modellgetriebene Software-Entwicklung}
+In der modellgetriebenen Software-Entwicklung \cite{Stahl2007} werden Teile des Software-Systems mit Hilfe von Modellen auf einem höheren Abstraktionslevel beschrieben. Dabei fließen die Modelle in die Software mit ein und sind Teil des Endproduktes. Das Ziel der modellgetriebenen Softwareentwicklung ist die Verbesserung der Softwarequalität und der Wiederverwendbarkeit. Außerdem soll eine Erhöhung der Entwicklungseffizienz zum Beispiel durch Quellcodeerzeugung aus den Modellen erreicht werden. 
+\subsection{Modell}
+\label{subch:Modell}
+Nach Herbert Stachowiak \cite{Stachowiak1973} zeichnet sich ein Modell durch die folgenden drei Merkmale aus.
+\begin{itemize}
+\item \textbf{Abbildung} - Bei einem Modell handelt es sich um eine Abbildung oder Repräsentation von einem künstlichen oder natürlichen Original. Das Original kann selbst wieder ein Modell sein. 
+\item \textbf{Verkürzung} - Es werden nicht alle Attribute des Originals erfasst, sondern nur diejenigen, die relevant sind.
+\item \textbf{Pragmatismus} - Modelle erfüllen ihre Ersatzfunktion für bestimmte Subjekte, innerhalb einer bestimmten Zeit und unter Einschränkung bestimmter gedanklicher oder tätlicher Operationen. Beispielsweise benötigt eine Analyse je nach gewünschter Genauigkeit auch unterschiedlich genaue Modelle. Der Pragmatismus schreibt vor, dass man hier nicht unnötig genau arbeitet.
+\end{itemize} 
+Ein Original könnte zum Beispiel eine Audio-Datei sein und das dazugehörige Modell könnte ein Lied-Element mit Titel "'Stairway to Haven"', des Sängers "'Led Zeppelin"' und dem Jahr "'1971"' sein.
+
+\subsection{Meta-Modelle}
+Ein Meta-Modell beschreibt die Struktur eines Modells. In dem Musik-Beispiel, würde das Meta-Modell eine Klasse \textbf{Song} mit den Attributen \textbf{Titel}, \textbf{Sänger}, vom Typ String und \textbf{Jahr} vom Typ Integer enthalten.
+Ein Meta-Modell muss folgende Bereiche abdecken:
+\begin{itemize}
+\item \textbf{Abstrakte Syntax}: Sie beschreibt die Konstrukte, aus denen die Modelle bestehen, sowie deren Eigenschaften und Beziehungen.
+\item \textbf{Konkrete Syntax}: Diese beschreibt die Darstellung der Konstrukte, Eigenschaften und Beziehungen, die in der abstrakten Syntax spezifiziert sind.
+\item \textbf{Statische Semantik}: Mithilfe dieser werden Modellierungsregeln und Einschränkungen ausgedrückt, die mit der abstrakten Syntax nicht möglich sind.
+\item \textbf{Dynamische Semantik}: Sie drückt die Bedeutung der Konstrukte aus und wird oft nicht formal, sondern durch natürlichsprachlichen Text spezifiziert.
+\end{itemize}
+
+\section{Rollen der komponentenbasierten Entwicklung} \label{sec:rolls}
+Die Modellierung des Datenflusses erfolgt auf Software-Architektur-Modellen. Dabei gibt es vier verschiedene Rollen \cite{Koziolek2006}, die an unterschiedlichen Teilen der Architektur arbeiten und dort ihr spezifisches Wissen einbringen.
+\begin{itemize}
+
+\item \textbf{Systemarchitekt}: Die Architektur und der Zusammenhang der einzelnen Komponenten miteinander werden vom Systemarchitekten entworfen. Er ist auch dafür zuständig weitere Anweisungen an die anderen Rollen weiterzugeben.
+\item \textbf{Domänenxperte}: Das Wissen darüber, wie der Benutzer mit dem System interagiert und welche Parameter im Kontrollfluss verwendet werden, stammt vom Domänenxperten.
+\item \textbf{Komponentenentwickler}: Für das Implementieren und Spezifizieren der einzelnen Komponenten ist der Komponentenentwickler verantwortlich.
+\item \textbf{Softwareverteilungsexperte}: Die Zusammenstellung der Systemumgebung der Software wird vom Softwareverteilungsexperten übernommen. Außerdem weist der Softwareverteilungsexperte den Komponenten Ressourcen zu.
+
+\end{itemize}
+
+\section{Palladio Komponentenmodell (PCM)}
+Das Palladio Komponentenmodell (PCM) \cite{Becker2010} ist eine Architecture-Description-Language (ADL). Sie wird verwendet um komponentenbasierte Software zu beschreiben. Neben der Beschreibung sind auch Qualitätsanalysen, wie etwa bezüglich der Performanz oder Zuverlässigkeit möglich. Im Folgenden werden Teile des PCM erklärt, die für die Bachelor Arbeit wichtig sind.
+
+\subsection{Submodelle}
+Auch im PCM werden vier Rollen betrachtet. Diese entsprechen den Rollen aus \ref{sec:rolls}. Der einzige Unterschied ist dabei, dass im PCM der Systemarchitekt Software-Architekt heißt. Die Aufgaben sind jedoch die selben.  \\
+Jede dieser Rollen ist außerdem für ein bestimmtes Submodell zuständig.
+Für das \textbf{Component"=Repository-Modell} ist der Komponentenentwickler zuständig. Dieses Modell enthält die einzelnen Komponenten und Schnittstellen. Der Software-Architekt ist für das \textbf{System-Modell} zuständig, das die Zusammensetzung der Komponenten charakterisiert. Der Softwareverteilungsexperte ist für gleich zwei Modelle verantwortlich. Das erste Modell, ist das \textbf{Execution-Environmet-Modell}. Es beschreibt die benutzte Hardware und das Netzwerk. Das zweite Modell beschreibt wie die einzelnen Komponenten auf der Hardware verteilt werden. Dieses Modell ist das \textbf{Component-Allocation-Modell}. Schließlich ist der Domänenxperte für das \textbf{Usage-Modell} zuständig. Dieses beschreibt die Interaktion des Benutzers mit dem System. \\
+Diese Modelle werden im Rahmen der Bachelorarbeit entsprechend um die Möglichkeit zur Modellierung von Datenflüsse und ggf. weiteren für die Vertraulichkeitsanalyse notwendigen Eigenschaften erweitert.
+
+\subsection{Service Effect Specification (SEFF)}
+Mithilfe der Service Effect Specification (SEFF) \cite{Reussner} kann das Verhalten innerhalb der Komponenten auf abstrakten, auf bestimmte Qualitätsattribute zugeschnittenen Leveln beschrieben werden. 
+Durch das spezifizieren von SEFFs kann man die Software auf Architekturebene analysieren. Dabei gibt es drei verschiedene Abstraktionslevel, die aufeinander aufbauen:
+\begin{itemize}
+\item \textbf{Signature-List-Based-Interface}: Schnittstellen dienen zur Kommunikation zwischen den Komponenten. Auf dem Signature-List-Based-Interface bauen die anderen Abstraktionslevel auf. Es besteht aus Parametern und Rückgabewerten.
+\item \textbf{Protocol-Modeling-Interface}: Mithilfe dieser Schnittstelle lassen sich Aufrufsequenzen definieren.
+\item \textbf{Quality-Of-Service-Modelling Interface}: Hier können verschiedene Qualitätsattribute definiert werden.
+\end{itemize}
+Der RDSEFF ist eine Erweiterung der SEFF. Die Performanzvorhersage für Komponenten basiert in Palladio unter anderem auf der Notation des RDSEFFs. \\
+Im Rahmen der Bachelorarbeit soll eine weitere SEFF-Spezialisierung entstehen, die den Datenfluss innerhalb der Komponenten beschreibt.
+
+%performance unabhängig \\
+%abstrakte syntax \\
+%beschreibt Verhalten innerhalb der Komponenten \\
+%abstraktes Level \\
+%erlaubt analyse auf Architektur ebene \\
+%abstraktions level hängt von Analyse ab \\
+%3 Level \\
+%%- Signature list based Interface \\
+%- protocol-modeling interface \\
+%- Quality of Service modeling interface \\
+
+%Ressource Demanding Seff als beispiel einer implementierung -> data flof seff
+
+

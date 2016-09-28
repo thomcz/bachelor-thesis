@@ -1,0 +1,10 @@
+http://www.itwissen.info/definition/lexikon/Vertraulichkeit-confidentiality.html
+
+
+https://www.bsi.bund.de/DE/Themen/ITGrundschutz/ITGrundschutzKataloge/Inhalt/Glossar/glossar_node.html
+
+https://www.dpunkt.de/buecher/3680/-modellgetriebene-softwareentwicklung-10826.html
+
+http://www.fh-wedel.de/~si/seminare/ws08/Ausarbeitung/10.oaw/indexse2.html
+
+ Herbert Stachowiak: Allgemeine Modelltheorie, 1973, S. 131–133

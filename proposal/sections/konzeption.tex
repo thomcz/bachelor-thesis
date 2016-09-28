@@ -1,0 +1,56 @@
+%% LaTeX2e class for student theses
+%% sections/content.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+
+\chapter{Konzeption}
+\label{ch:Konzeption}
+Im folgendem Abschnitt werden die geplanten Tätigkeiten beschrieben.
+\section{Anforderungserhebung für die Vertraulichkeitsanalyse}
+\subsection{Spezifiziere Vertraulichkeit}
+\label{subch:SpezifiziereVertraulichkeit}
+Da in verwandter Literatur keine einheitliche Spezifikation und Anforderungen an Vertraulichkeit zu finden sind, werden im ersten Schritt die einzelnen Ansätze verglichen und Überschneidungen ermittelt. Sollten diese Anforderungen für Vertraulichkeit relevant sein, werden diese für die spätere Modellierung berücksichtigt. Zum Beispiel findet sich in \cite{Jurjens2005} und \cite{Kramer} die Anforderung, dass man auf Daten nur mit Erlaubnis zugreifen kann und diese einem zunächst erteilt werden muss. \\
+Nachdem eine Sammlung von Anforderungen an Vertraulichkeit entstanden ist, werden die Anforderungen bezüglich ihrer Allgemeingültigkeit für Analysen priorisiert. Bei der Modellierung werden dann häufig genutzte Anforderungen zuerst umgesetzt.
+
+%Anforderungen an Vertraulichkeitsanalyse herausfinden \\
+%dazu Paper vergleichen und Überschneidungen finden und Anforderungen heraussuchen, die zu %den definierten Zielen passen \\
+%Anforderungen spezifizieren \\
+%Beispiel für eine gemeinsame wichtige spezifiezierung
+
+\subsection{Modellierung von Daten und Datenfluss}
+Nachdem die Vertraulichkeit spezifiziert wurde, werden im nächsten Schritt die verschiedenen Rollen der komponentenbasierten Entwicklung identifiziert. Daraufhin wird ermittelt, welche Rolle welche Informationen liefern kann. Im Anschluss werden die einzelnen Sichten identifiziert, die zu der jeweiligen Rolle gehören. Schließlich werden die identifizierten Daten auf die einzelnen Modelle abgebildet.
+
+%Identifiziere verschiedene Sichten (Allgemein) \\
+%Bilde Informationen auf Sichten ab (was bekomme ich vom wem) \\
+%Bilde Sichten auf Modelle Ab \\
+%Metamodelle anpassen
+
+
+\section{Modellierung in Palladio}
+\subsection{Vorgehen bei der Implementierung}
+Schließlich soll die Datenflussmodellierung in Palladio implementiert werden. Dazu muss zunächst von den allgemeinen Rollen auf die Palladio Rollen abgebildet werden. Im nächsten Schritt müssen die Meta-Modelle der jeweiligen Sicht erweitert werden. \\
+Die Implementierung besteht aus mehreren Teilen, die sich im Verlauf der Anforderungerhebung ergeben. Ein Teil wird voraussichtlich sein einen SEFF zu implementieren, der den Datenfluss innerhalb einer Komponente beschreibt. Ein weiterer Teil sind Annotationen die zum Beispiel an Server angehängt werden können um deren Standort zu beschreiben. Annotationen sind ebenfalls an Verbindungen zwischen Rechenknoten sinnvoll, um beispielsweise anzuzeigen ob auf dem Link verschlüsselt kommuniziert wird. \\
+Weitere Teile müssen noch im Laufe der Spezifizierung und Modellierung identifiziert werden.
+
+\subsection{Erweiterung der Meta-Modelle}
+Die Erweiterung des PCMs erfolgt durch die Erweiterung seines Metamodells. Dazu wurde von Strittmatter et al. \cite{Strittmatter} ein Ansatz entwickelt, bei dem die zu modellierenden Informationen in Gruppen eingeteilt werden. Das Meta-Modell wird in Schichten eingeteilt, die jeweils eine Gruppe abbilden. Schichten referenzieren sich gegenseitig. Dies führt zu einer modularen, flexiblen und erweiterbaren Struktur, die die Koexistenz von verschiedenen Qualitätsattributen und -analysen ermöglicht. Das Meta-Modell ist in die folgenden vier Schichten unterteilt:
+\begin{itemize}
+\item Die \textbf{Paradigm}-Schicht ist die Basisschicht. Sie legt den Grundstein für die Modellierungssprache, indem sie die Struktur, aber keine Semantik bereitstellt.
+\item Die Semantik für die abstrakte Struktur der Sprache liefert die \textbf{Domain}-Schicht.
+\item In der \textbf{Quality}-Schicht werden Qualitätseigenschaften für bestimmte Bereiche hinzugefügt.
+\item Schließlich bietet die \textbf{Analysis}-Schicht Module für die Eingabe, Ausgabe und den internen Zustand. Außerdem gibt es Konfigurationsoptionen für Analysen.
+\end{itemize}
+In der Bachelorarbeit wird die \textbf{Quality}-Schicht erweitert, da dort Qualitätseigenschaften spezifiziert werden können. Sonst wird keine Schicht erweitert. Die \textbf{Analysis}-Schicht wird nicht erweitert, aber für weitere Arbeiten berücksichtigt.  \par
+Nachdem die vorherigen Schritte abgearbeitet wurden, werden nun die einzelnen Anforderungen für Palladio iterativ implementiert. Dazu muss zunächst überlegt werden, welcher Mechanismus zu Erweiterung der Meta-Modelle am sinnvollsten ist. \par
+Dabei gibt es verschiedene Möglichkeiten das Meta-Modell zu erweitern. Eine Möglichkeit wäre das existierende Meta-Modell durch Annotationen oder Stereotypen zu erweitern. Das Problem dabei ist, dass flache und unstrukturierte Informationen entstehen. Eine andere Möglichkeit wäre die Erweiterung mithilfe eines neuen Entwicklungszweiges. Dabei entsteht aber das Problem das duplizierte Teile gepflegt werden müssen, wenn sie im ursprünglichen Zweig verändert wurden. \par
+%bilde allgemeine Sichten auf Paladio Sichten ab \\
+%erweitere die dazugehörigen metamodelle \\
+%SEFF

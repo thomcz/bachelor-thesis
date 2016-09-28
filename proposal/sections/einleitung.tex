@@ -1,0 +1,52 @@
+%% LaTeX2e class for student theses
+%% sections/content.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\chapter{Einleitung}
+\label{ch:Einleitung}
+Heutige IT-Systeme verarbeiten immer mehr vertrauliche Daten und werden gleichzeitig komplexer. Die Vertraulichkeit der Daten soll innerhalb der Komponenten, auf dem jeweiligen Gerät sowie beim Übertragen zwischen Software"=Komponenten oder Geräten gewährleistet werden. Dies ist eine große Herausforderung. Außerdem ist eine Bewertung, ob das System ausreichend abgesichert ist schwierig, da in komplexen Systemen unklar ist, wo relevante Daten verarbeitet werden. \par
+Dies ist mithilfe von Datenflussanalysen möglich. Diese Analysen nutzen die Implementierung der Anwendung als Eingabe. Fehler können dadurch aber erst nach der Implementierung erkannt und nicht bereits vorzeitig beseitigt werden. Ist ein Fehler durch eine mangelhafte Architektur entstanden, muss ggf. sogar ein Großteil der Implementierung verworfen werden. Ansätze zum Erkennen solcher Fehler auf Architekturebene sind in Entwicklung, aber scheitern daran, dass Datenflüsse auf Architekturebene bisher nur indirekt, zum Beispiel über Parameterübergabe spezifizierbar sind. \\
+%Motivation: \\
+%Vertrauliche Daten die in verteilten SoftwareSystemen bergen sicherheitsrisiko \\
+%- ausgetauscht zwischen logischen komponenten, physikalischen geräten, Protocol Stack / Stapel \\
+%Datenlecks auf implementierungsebene fixen ist teuer \\
+%- nicht nur source code sondern evtl architektur muss überdenkt werden.\\
+%Datenfluss von vertraulichen daten bereits beim system design beachten \\
+%Dabei können verletzungen des Datenschutzrechts oder der anforderungen an externe dienstleister auf architektur ebende erkannt werden \\
+
+Ziel dieser Bachelorarbeit ist die Modellierung von Datenflüssen auf Architekturebene zu ermöglichen. Diese Modellierung soll für eine Vertraulichkeitsanalyse in Palladio genutzt werden. Sie soll aber auch für andere auf Datenflüssen aufbauende Analysen, beispielsweise aus dem Sicherheitsbereich nutzbar sein. \par
+Nachdem der Datenfluss modelliert wurde, soll es möglich sein sicherheitsrelevante Eigenschaften zu definieren.
+%Zum Beispiel die Eigenschaft das bestimmte Daten nicht mit anderen Daten zusammenkommen dürfen, da sonst die Vertraulichkeit gefährdet wäre. \\
+Auch der Standort der Hardware soll spezifizierbar sein. Dabei soll verhindert werden, dass die Vertraulichkeit der Daten gefährdet wird, wenn diese an einen Ort geraten, an dem Vertraulichkeit nicht garantiert werden kann. \\
+Außerdem soll die Möglichkeit gegeben werden Verbindungen zwischen Komponenten oder Geräten zu charakterisieren, beispielsweise dadurch, ob auf der Verbindung die Daten verschlüsselt übertrage werden oder nicht. \\
+%Sollte nicht sicher sein, ob es sich um eine Verletzung der Vertraulichkeit handelt, soll die Analyse dem Benutzer Feedback gebe, damit dieser entscheidet was zu tun ist. \\
+%Ziele: \\
+%Allgemeine Vertraulichkeitsanalyse auf Architekturebene modelieren \\
+%Im anschluß für palladio implementieren \\
+%%Ziel der Analyse: Datenlecks vermeiden \\
+%Erkenne ob Daten sich gegenseitig beeinflussen \\
+%Analyse beachtet Standort (HW) \\
+%Analyse gibt kritische Stellen an Benutzer weiter \\
+
+%%Erweiterbarkeit (SEFF Aktionen (zu Beginn z.B. lesen, kombinieren, schreiben))
+%%Vorgehen:\\
+%%Vertraulichkeit spezifizieren und analysieren \\
+%%abstrakte syntax -> Meta modell -> daten und DF modelieren \\
+%%- DF wird innerhalb von Komponenten modelliert (SEFF) \\
+%%Daten sollen über Schnittstellen ausgetauscht werden (Palladio Signaturen) \\
+Im folgenden Kapitel \ref{ch:Grundlagen} werden die Grundlagen erläutert, die für die geplante Bachelorarbeit benötigt werden. In Kapitel \ref{ch:VerwandteArbeiten} wird ein Überblick über verwandte Arbeiten gegeben. Die geplanten Tätigkeiten der Bachelorarbeit werden in Kapitel \ref{ch:Konzeption} beschrieben. Die Beschreibung der Validierung erfolgt in Kapitel \ref{ch:Validierung}. In den Kapiteln \ref{ch:Organisatorisches} und \ref{ch:Zeitplan} werden die Organisation und der Zeitplan sowie Risikomanagement erläutert.
+%Struktur: \\
+%Grundlagen in Sec 2 \\
+%Verwandte Arbeiten Sec 3\\
+%KOnzeption der BA Sec 4 \\
+%Validierung der BA mithilfe einer Analyse Sec 5 \\
+%Organisatorische Sec 6 \\
+%Risikomanegemnet Sec 7\\

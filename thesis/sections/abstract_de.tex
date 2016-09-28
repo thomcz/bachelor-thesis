@@ -1,0 +1,23 @@
+%% LaTeX2e class for student theses
+%% sections/abstract_de.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\Abstract
+%\textbf{1. Wo ist thema angesiedelt (Themengebiet)}
+Das Interesse, dass vertrauliche Daten in IT-Systemen geschützt sind, ist sehr hoch, da Datenlecks hohe Kosten verursachen können und die Reputation eines Unternehmens nachhaltig schädigen können.
+%\textbf{2. Problembeschriebung}
+Ein solches System sicher zu entwerfen, ist allerdings schwierig, da die Bewertung, wie gut ein System abgesichert ist, häufig nur durch Experten möglich ist, weil Sicherheitsaspekte nicht in geeigneter Form dokumentiert sind und die Auswirkung einer Änderung auf das Gesamtsystem schwer festzustellen ist. Bei der Bestimmung von Vertraulichkeitseigenschaften können Datenflussanalysen helfen.
+%\textbf{3. Mängel an existierenden arbeiten}
+Verbreitete Datenflussanalysen weisen aber einige Schwächen auf. Zum Einen werden Daten und Datenflüsse erst in der Implementierung analysiert. Fehler können somit erst in der Implementierung entdeckt werden und können zu aufwendigen Änderungen in der Implementierung und Architektur führen. Zum Anderen leiten diese Analysen Datenflüsse aus dem Kontrollfluss ab oder spezifizieren diese nur indirekt über Parameterübergaben. Sicherheitsanalysen werden dadurch komplexer und damit auch unverständlicher für deren Nutzer.
+%\textbf{4. Eigener ansatz}
+In dieser Bachelorarbeit werden Daten und Datenflüsse als Objekte erster Klasse, auf Architekturebene eingeführt. Datenflüsse werden sowohl aus Nutzersicht, als auch aus technischer Sicht betrachtet und dokumentierbar. Durch Flexible Eigenschaften ist es möglich, vielfältige Analysen zu nutzen.Außerdem werden bestehende Architekturmodelle im Palladio-Komponenten-Modell (PCM) erweitert.
+%\textbf{5. Art der Validierung (wie wurde nachgewiesen)}
+Zur Validierung wurde ein bekanntes Fallstudiensystem modelliert, um Datenflüsse erweitert und die dadurch entstandenen Eingabedaten für eine Analyse mit existierenden Daten abgeglichen. Der Vergleich zeigt, dass der Modellierungsansatz für Vertraulichkeitsanalysen geeignet ist und zu sinnvollen Ergebnissen führt.

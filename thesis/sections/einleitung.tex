@@ -1,0 +1,38 @@
+%% LaTeX2e class for student theses
+%% sections/content.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\chapter{Einleitung}
+\label{ch:einleitung}
+Heutige IT-Systeme werden immer komplexer und verarbeiten immer mehr vertrauliche Daten. Dabei ist das Interesse, dass vertrauliche Daten geschützt sind, sehr hoch. Der Grund dafür ist, dass ein Datenleck hohe Kosten verursachen kann. Die von IBM und Ponemon Institute gesponserte Studie \textbf{Cost of Data Breach Study: Global Analysis} \cite{PonemonInsitute2015} veröffentlichte 2015 die Kosten, die ein gestohlener bzw. verlorener Datensatz verursacht. Bei den betrachteten Datensätzen handelt es sich um Kundendaten. In Deutschland betrug der Schaden dabei durchschnittlich 211 \$. 2014 lag der Schaden noch bei 195 \$. Durch den Anstieg der Kosten, entsteht ein finanzielles Interesse bei den Unternehmen, dass die Daten auf ihren Systemen geschützt sind. \par
+Der Schutz der Daten ist eine große Herausforderung. Außerdem ist eine Bewertung, ob ein existierendes oder geplantes System ausreichend abgesichert ist, schwierig, da schwer zu ermitteln ist, wo relevante Daten in komplexen Systemen verarbeitet werden. \par
+In \autoref{img:einleitung:bsp} ist ein System abgebildet. Dieses System besteht aus mehreren Komponenten, die auch an verschiedenen Orten liegen können. Außerdem gibt es einen Benutzer, der vertrauliche Daten in das System eingibt, z.B. seine Kreditkarteninformationen. Nun wird eine der Komponenten ausgelagert, z.B. an einen Drittanbieter. Dieser soll, bzw. darf an keine der vertraulichen Daten gelangen. Das heißt, dass die ausgelagerte Komponente nicht mehr an die vertraulichen Daten gelangen darf. Um das jedoch sicherzustellen, bzw. zu erkennen benötigt es einer Datenflussanalyse, die den Fluss von Daten nachvollzieht.
+\begin{figure}[h]
+	\centering
+  	\includegraphics[width=1\textwidth]{images/einleitung_bsp.png}
+	\caption{System, das vertrauliche Daten vom Benutzer verarbeitet}
+	\label{img:einleitung:bsp}
+\end{figure} 
+Das Problem ist, dass verbreitete Datenflussanalysen, die Implementierung der Anwendung als Eingabe nutzen. Fehler können dadurch erst nach der Implementierung erkannt und nicht bereits vorzeitig beseitigt werden. Ist ein Fehler durch eine mangelhafte Architektur entstanden, muss ggf. sogar ein Großteil der Implementierung verworfen werden. Dies kann zu hohen Kosten führen, da nicht nur die Implementierung sondern auch die Architektur repariert werden muss. Eine Datenflussanalyse auf Architekturebene hätte den Vorteil, dass Fehler bereits frühzeitig erkannt werden können, wie z.B in dem Fall der IP-Telefone von Snom \cite{IPTelefon}. Dabei war es möglich, bei allen IP-Telefone des Herstellers, von außen eine neue Firmware aufzuspielen. Eine Datenflussanalyse hätte beim Entwurf helfen können zu überprüfen, wohin Nutzereingaben fließen. 
+%offen zugänglichen Industrieanlagen in Deutschland \footnote{http://www.heise.de/security/meldung/Kritische-Schwachstelle-in-hunderten-Industrieanlagen-1854385.html}. Zahlreiche Betreiber von Industrieanlagen haben ihre Steuerungsmodule mit dem Internet verbunden und sich über Sicherheit beim Architekturentwurf keine Gedanken gemacht. \\
+Ein weiteres Beispiel, ist der Fall eines Auto-Hacks, bei dem ein Jeep Cherokee aus der Ferne gehackt und ferngesteuert werden konnte \cite{Cherokee}. Eine Datenflussanalyse hätte geholfen festzustellen, dass Komponenten beim Entwurf nicht sauber getrennt wurden. \par
+Es ist schwierig, solche Analysen zu entwickeln und für den Nutzer, die dafür notwendigen Eingabedaten zu formulieren. Dies geht leichter über Datenflüsse. Ansätze dafür sind in Entwicklung, aber erlauben die Spezifikation von Datenflüssen bisher nur indirekt, z.B. über Parameterübergabe.
+
+\section{Ziel}
+\label{sec:zielDieserArbeit}
+Das Problem ist, dass es keine Datenflussdokumentation auf Architekturebene gibt. Daten können nur indirekt über Parameter identifiziert werden. Das führt dazu, dass Analysen nur eingeschränkt möglich sind, z.B. dadurch, dass Datenflüsse nicht innerhalb von Komponenten nachvollzogen werden können.
+Das ist soweit ein Problem, dass viele Sicherheitsanalysen schwer über den indirekten Datenfluss ausdrückbar sind. \par
+Die Idee ist, Daten und Datenflüsse als Objekte erster Klasse auf Architekturebene einzuführen. Dazu soll eine Modellierung entwickelt werden, die es ermöglicht Daten und Datenflüsse auf Architekturebene auszudrücken. Die Modellierung soll dabei als Eingabe in Datenflussanalysen eingesetzt werden. Im Rahmen der Bachelorarbeit soll der Fokus zunächst auf Vertraulichkeitsanalysen in Palladio liegen. In nachgelagerten Arbeiten sollen weitere Analysen betrachtet werden. \par
+Der Vorteil dabei ist, dass weitere Qualitätsattribute in Palladio analysierbar werden. Außerdem ist der Dokumentationsaufwand geringer. Alternativ müsste ein komplett neues Modell erstellt werden. Mit dem hier gewählten Ansatz können aber Palladio-Modelle wiederverwendet werden.
+
+\section{Aufbau}
+\label{sec:aufbau}
+Im Folgenden wird der Aufbau der Arbeit beschrieben. In \autoref{ch:grundlagen} werden Grundlagen erläutert, die für die weitere Arbeit benötigt werden. In \autoref{ch:verwandteArbeiten} wird ein Überblick über themenverwandte Arbeiten gegeben. Sie werden kurz zusammengefasst und diskutiert, in wie weit sie für die Bachelorarbeit relevant sind, bzw. wie sich die Bachelorarbeit abgrenzt. \autoref{ch:modellierung} beschreibt eine Modellierung, mit der es möglich ist Daten und Datenflüsse in Palladio zu modellieren. Diese Modellierung wird in \autoref{ch:validierung} mithilfe eines Fallbeispiels und einer Vertraulichkeitsanalyse für Palladio validiert. Schließlich wird in \autoref{ch:zusammenfassung} die Arbeit zusammengefasst und ein Ausblick für zukünftige Arbeiten gegeben.

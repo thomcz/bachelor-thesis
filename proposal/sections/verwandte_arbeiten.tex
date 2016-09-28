@@ -1,0 +1,46 @@
+%% LaTeX2e class for student theses
+%% sections/conclusion.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\chapter{Verwandte Arbeiten}
+\label{ch:VerwandteArbeiten}
+Im Folgenden werden Arbeiten vorgestellt, die ähnliche Aufgabenstellungen haben oder Teile der Bachelorarbeit behandeln. \\
+
+Für die Spezifizierung der Vertraulichkeit in Abschnitt \ref{subch:SpezifiziereVertraulichkeit} werden die folgenden Arbeiten verglichen um die verschiedenen Aspekte von Vertraulichkeit zu beleuchten und notwendige Eingabedaten für Vertraulichkeitsanalysen zu ermitteln.
+\begin{itemize}
+\item In der erste Arbeit \textbf{Specification and Verification of
+Confidentiality in Component"=Based Systems} \cite{Kramer} wird Vertraulichkeit spezifiziert indem Anforderungen aufgestellt werden, die von einem vertraulichen System erfüllt werden müssen.
+\item In dem Buch \textbf{Secure System Development for UML} \cite{Jurjens2005} werden zunächst einige Sicherheitseigenschaften spezifiziert (unter anderem Vertraulichkeit) um eine Sicherheitsanalyse für UML-Diagramme durchführen zu können.
+\item In der Arbeit \textbf{A Security Confidential Document Model and Its Application} \cite{Zheng2010} wird ein Model vorgestellt, mit dem die Vertraulichkeit von elektronischen Dokumenten sichergestellt werden soll. Hier werden auch Anforderungen für Vertraulichkeit spezifiziert.
+\end{itemize}
+
+In dem Buch \textbf{Principles of Program Analysis} \cite{Nielson1999} wird die Datenflussanalye auf Implementierungsebene beschrieben. Obwohl in der Bachelorarbeit Datenflüsse auf Architekturebene betrachtet werden, kann das Buch als Grundlagenlektüre für Datenflussanalysen dienen. \\
+In der Arbeit \textbf{Model-Driven Specification and Analysis of Confidentiality in Component"=Based Systems} \cite{Kramera} werden Datenflüsse auf Architekturebene betrachtet, aber nicht innerhalb der Komponenten. Im Laufe der Bachelorarbeit soll die dort erarbeite Vertraulichkeitsanalyse für die Validierung (vgl. Kapitel \ref{ch:Validierung}) dienen. \\
+
+Außerdem konnten drei Paladio-Erweiterungen identifiziert werden, die sich mit dem Problem der Datenflussmodellierung befassen.
+\begin{itemize}
+\item \textbf{Model-Driven Specification and Analysis of Confidentiality in Component"=Based Systems} \footnote{\url{https://sdqweb.ipd.kit.edu/wiki/Model-Driven_Specification_and_Analysis_of_Confidentiality_in_Component-Based_Systems}} ist eine Erweiterung, die die Vertraulichkeit von Informationen spezifiziert und analysiert, die in komponentenbasierten Systemen verarbeitet werden
+\item \textbf{PASE} \footnote{https://sdqweb.ipd.kit.edu/wiki/PASE} erlaubt in PCM-Modellen den Datenfluss zu modellieren und analysieren.
+\item \textbf{Palladio.TX} \footnote{https://sdqweb.ipd.kit.edu/wiki/Palladio.TX} modelliert und analysiert transaktionale Informationssysteme und spezifiziert dazu Daten, sowie deren Speicherung in Datenbanktabellen.
+\end{itemize}
+Die drei Erweiterungen liefern jedoch keine oder keine ausreichende Dokumentation. Nur \textbf{PASE} liefert auf seiner Wiki-Seite eine Beschreibung der Erweiterung des Metamodells. Außerdem kann keine der Erweiterungen feststellen, wie Daten innerhalb von Komponenten verarbeitet werden. Dies ist jedoch für eine Vertraulichkeitsanalyse notwendig.
+ 
+%erwähne Palladion Erweiterungen und Grenze dich ab (können z.B. nicht feststellen, welche %Parameter sich beeinflussen) \\
+
+%Für Modellierung und Spezifizierung: Poster: Specification and Veri?cation of Confidentiality in Component-Based Systems \\
+%Secure System Development with UML
+
+%Für Analyse: Architectural Data Flow Analysis, Stephan; Poster: Specification and Verification of Confidentiality in Component-Based Systems \\
+%Datenflussanalyse implementierung vs architektur \\
+%untersuche zwischen welchen Teilen Daten weitergegeben werden --> welche Abhängigkeiten entstehen \\
+%mithilfe controll flow graph (CFG) \\
+%CFG besteht aus Codeblöcken \\
+%Einzelne Blöcke werden untersucht, wie Daten sich im Block verändern, bzw. zwischen Blöcken \\

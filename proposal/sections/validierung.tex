@@ -1,0 +1,19 @@
+%% LaTeX2e class for student theses
+%% sections/evaluation.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute for Program Structures and Data Organization
+%% Chair for Software Design and Quality (SDQ)
+%%
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Version 1.1, 2014-11-21
+
+\chapter{Validierung}
+\label{ch:Validierung}
+Im Laufe der Bachelorarbeit wird ein Ansatz zu Modellierung von Datenflüssen auf Architekturebene entwickelt.
+Um den Nachweis über die Einsatzeignung der entwickelten Methodik aus Abschnitt \ref{ch:Konzeption} zu erbringen, soll geprüft werden ob die Eigenschaften nach Stachowiak (vgl. Kapitel \ref{subch:Modell}) erfüllt sind. Die Eigenschaften \textbf{Abbildung} und \textbf{Verkürzung} sind gegeben, da es sich um eine Abbildung von Datenflüssen handelt und nur relevante Attributen erfasst werden. Schließlich muss die Eigenschaft \textbf{Pragmatismus} geprüft werden. Pragmatismus ist gegeben, wenn die Modelle für ihren späteren Einsatzzweck geeignet sind. Im Rahmen der Bachelorarbeit sind Analysen der Einsatzzweck. Deshalb muss geprüft werden ob das Meta-Modell auch diese Eigenschaft unterstützt. Dafür gibt es zwei Ansätzen.\par
+Der erste Ansatz ist die Vertraulichkeitsanalyse aus \cite{Kramera}. Diese Analyse prüft die Vertraulichkeit in komponentenbasierten Systemen. Für die Analyse müssen Eingabe und Ausgabe eines Systems spezifiziert werden, sowie Zugriffsspezifikation für Hardware und Kommunikationsverbindungen. Mithilfe dieser Informationen und einem Angreifer Modell wird eine Architektur- und Code-Analyse durchgeführt. Nach Durchführung der Analyse werden Designfehler, Datenlecks und Verstöße gegen die Spezifikation angezeigt. Die Analyse soll auf einem oder beiden Fallbeispielen aus der Arbeit laufen. Dabei handelt es sich um ein verteiltes Reiseplaner-System und um ein Cloud-Hosting-System mit zwei Tiers. Beide Systeme müssen vor der Analyse mit Datenflüssen ausgestattet werden. Dies geschieht, indem spezifiziert wird, welche Parameter sich innerhalb der Komponente beeinflussen. Für die Validierung muss die Analyse ebenfalls angepasst werden, damit der Datenfluss berücksichtigt wird. \par
+Eine weitere Möglichkeit der Validierung kann mithilfe einer anderen Analyse durchgeführt werden. Die Analyse soll über Modellabfragen realisiert werden. Dazu kann zum Beispiel eine Analyse aus der Literatur genommen werden. Als Fallbeispiel soll der Palladio MediaStore \cite{Reussner} dienen, für den davor Datenflüsse modelliert werden.
+
